@@ -12,8 +12,8 @@ const SideBar = () => {
                         to={path}
                         title={name}
                         className={({ isActive }) =>
-                            `${isActive ? "bg-sky-500/70 text-sky-50" : ""
-                            } p-2 flex w-full items-center bg-neutral-50 rounded hover:text-sky-50 hover:bg-sky-500 rounded`
+                            ` p-2 flex w-full items-center bg-neutral-50 rounded hover:text-sky-50 hover:bg-sky-500 rounded ${isActive ? "bg-sky-500/70 text-sky-50" : ""
+                            }`
                         }
                     >
                         <span className='material-icons'>
