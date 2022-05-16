@@ -42,6 +42,7 @@ export const signupHandler = function (schema, request) {
       bookmarks: [],
     };
     const createdUser = schema.users.create(newUser);
+
     const encodedToken = sign(
       { _id, username },
       process.env.REACT_APP_JWT_SECRET
@@ -69,6 +70,7 @@ export const loginHandler = function (schema, request) {
   try {
     const foundUser = schema.users.findBy({ username: username });
     if (!foundUser) {
+
       return new Response(
         404,
         {},
@@ -80,6 +82,7 @@ export const loginHandler = function (schema, request) {
       );
     }
     if (password === foundUser.password) {
+
       const encodedToken = sign(
         { _id: foundUser._id, username },
         process.env.REACT_APP_JWT_SECRET

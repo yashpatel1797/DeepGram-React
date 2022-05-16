@@ -1,7 +1,18 @@
 import { PostCard } from 'components/PostCard/PostCard'
+import { useAuth } from 'hooks/selectors'
 import React from 'react'
-
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { logout } from "store/feature/authSlice"
 const ProfileCard = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { user } = useAuth();
+    const logoutHandler = () => {
+        dispatch(logout(user));
+        localStorage.clear();
+        navigate("/login")
+    }
     return (
         <>
             <div>
@@ -23,7 +34,8 @@ const ProfileCard = () => {
                     <div className='flex items-center'>
                         <p className='mr-4'>Yash Patel</p>
                         <button className='py-2 px-4 mr-4 bg-sky-500 text-white rounded hover:bg-sky-500/50'>Edit</button>
-                        <button className='py-2 px-4 text-sky-500 border border-sky-500 bg-white rounded hover:text-white hover:bg-sky-500/50'>Logout</button>
+                        <button className='py-2 px-4 text-sky-500 border border-sky-500 bg-white rounded hover:text-white hover:bg-sky-500/50'
+                            onClick={logoutHandler}>Logout</button>
                     </div>
                     <div className='flex justify-between mt-3'>
                         <div>
