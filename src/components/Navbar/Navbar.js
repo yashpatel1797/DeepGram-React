@@ -1,7 +1,9 @@
+import { useAuth } from 'hooks/selectors'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+    const { user } = useAuth();
     return (
         <nav className='fixed w-full lg:px-80 md:px-40 px-20 flex flex-row top-0 h-13 items-center border bg-neutral-50'>
             <div className='mr-auto'>
@@ -19,13 +21,16 @@ const Navbar = () => {
                         add_circle_outline
                     </span>
                 </button>
-                <Link to="/profile">
+                {user ? <Link to="/profile">
                     <img
                         alt="profile"
                         loading="lazy"
                         src="https://i.pravatar.cc/300"
                         className='w-11 h-11 border rounded-full bg-gray-200 ml-5' />
-                </Link>
+                </Link> : <Link to="/login">
+                    <button>Login</button>
+                </Link>}
+
             </div>
         </nav>
     )
