@@ -17,7 +17,7 @@ const Login = () => {
         loginDispatch({ type: "SET_PASSWORD", payload: "yashpatel" })
     }
 
-    const submitHandler = async (e, email, password) => {
+    const submitHandler = (e) => {
         e.preventDefault();
         dispatch(loginUser({ username: email, password }))
 
@@ -31,7 +31,7 @@ const Login = () => {
     return (
         <div className="w-full flex justify-center mt-20">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-                onSubmit={(e) => submitHandler(e, email, password)}>
+                onSubmit={submitHandler}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                         Email
@@ -41,14 +41,16 @@ const Login = () => {
                         type="text"
                         placeholder="Enter Email"
                         value={email}
-                        onChange={(e) => loginDispatch({ type: "SET_EMAIL", payload: e.target.value })} />
+                        onChange={(e) => loginDispatch({ type: "SET_EMAIL", payload: e.target.value })}
+                        required />
                 </div>
                 <div className="mb-6">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                         Password
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" value={password}
-                        onChange={(e) => loginDispatch({ type: "SET_PASSWORD", payload: e.target.value })} />
+                        onChange={(e) => loginDispatch({ type: "SET_PASSWORD", payload: e.target.value })}
+                        required />
                 </div>
 
                 <div>

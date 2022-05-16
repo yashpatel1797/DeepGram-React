@@ -11,7 +11,7 @@ const Signup = () => {
     const [{ firstName, lastName, username, email, password, confirmPassword }, signupDispatch
     ] = useReducer(signupFormReducer, { firstName: "", lastName: "", username: "", email: "", password: "", confirmPassword: "" })
 
-    const submitHandler = async (e, firstName, lastName, username, email, password, confirmPassword) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         dispatch(signupUser({ firstName, lastName, username, email, password, confirmPassword }));
     }
@@ -24,7 +24,7 @@ const Signup = () => {
         <div className="flex justify-center items-center w-full mt-20">
             <form
                 className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-                onSubmit={(e) => submitHandler(e, firstName, lastName, username, email, password, confirmPassword)}>
+                onSubmit={submitHandler}>
                 <div className="mb-4">
                     <label
                         className="block text-gray-700 text-sm font-bold mb-2"
@@ -38,6 +38,7 @@ const Signup = () => {
                         placeholder="Firstname"
                         value={firstName}
                         onChange={(e) => signupDispatch({ type: "SET_FIRSTNAME", payload: e.target.value })}
+                        required
                     />
                 </div>
                 <div className="mb-4">
@@ -52,7 +53,8 @@ const Signup = () => {
                         type="text"
                         placeholder="Lastname"
                         value={lastName}
-                        onChange={(e) => signupDispatch({ type: "SET_LASTNAME", payload: e.target.value })} />
+                        onChange={(e) => signupDispatch({ type: "SET_LASTNAME", payload: e.target.value })}
+                        required />
                 </div>
                 <div className="mb-4">
                     <label
@@ -66,7 +68,8 @@ const Signup = () => {
                         type="text"
                         placeholder="Username"
                         value={username}
-                        onChange={(e) => signupDispatch({ type: "SET_USERNAME", payload: e.target.value })} />
+                        onChange={(e) => signupDispatch({ type: "SET_USERNAME", payload: e.target.value })}
+                        required />
                 </div>
                 <div className="mb-4">
                     <label
@@ -81,6 +84,7 @@ const Signup = () => {
                         placeholder="Enter Email"
                         value={email}
                         onChange={(e) => signupDispatch({ type: "SET_EMAIL", payload: e.target.value })}
+                        required
                     />
                 </div>
                 <div className="mb-6">
@@ -95,7 +99,8 @@ const Signup = () => {
                         type="password"
                         placeholder="******************"
                         value={password}
-                        onChange={(e) => signupDispatch({ type: "SET_PASSWORD", payload: e.target.value })} />
+                        onChange={(e) => signupDispatch({ type: "SET_PASSWORD", payload: e.target.value })}
+                        required />
                 </div>
                 <div className="mb-6">
                     <label
@@ -109,7 +114,8 @@ const Signup = () => {
                         placeholder="******************"
                         id="confirm-password"
                         value={confirmPassword}
-                        onChange={(e) => signupDispatch({ type: "SET_CONFIRMPASSWORD", payload: e.target.value })} />
+                        onChange={(e) => signupDispatch({ type: "SET_CONFIRMPASSWORD", payload: e.target.value })}
+                        required />
                 </div>
                 <div className="flex items-center justify-between">
                     <button
@@ -124,7 +130,7 @@ const Signup = () => {
                 </div>
                 <div className='mt-4'>Already a user? <Link to="/login" className='text-sky-500 hover:text-sky-700'>Login</Link></div>
             </form>
-        </div>
+        </div >
     )
 }
 
