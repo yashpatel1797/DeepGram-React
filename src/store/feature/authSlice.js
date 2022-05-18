@@ -17,6 +17,7 @@ export const loginUser = createAsyncThunk(
             } = await axios.post("/api/auth/login", { username, password });
             localStorage.setItem("token", encodedToken)
             localStorage.setItem('userData', JSON.stringify(foundUser));
+            axios.defaults.headers.common["authorization"] = encodedToken;
             return { foundUser, encodedToken };
         } catch (error) {
             toast.error(error.response.data.message);
@@ -35,6 +36,7 @@ export const signupUser = createAsyncThunk(
             } = await axios.post("/api/auth/signup", { ...userDetails });
             localStorage.setItem("token", encodedToken)
             localStorage.setItem('userData', JSON.stringify(createdUser));
+            axios.defaults.headers.common["authorization"] = encodedToken;
             return { createdUser, encodedToken };
         } catch (error) {
             toast.error(error.response.data.message);

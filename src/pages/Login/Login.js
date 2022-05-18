@@ -13,7 +13,7 @@ const Login = () => {
     const [{ email, password }, loginDispatch] = useReducer(loginFormReducer, { email: "", password: "" })
 
     const testHandler = () => {
-        loginDispatch({ type: "SET_EMAIL", payload: "yashpatel@gmail.com" })
+        loginDispatch({ type: "SET_EMAIL", payload: "yashpatel" })
         loginDispatch({ type: "SET_PASSWORD", payload: "yashpatel" })
     }
 
@@ -34,10 +34,10 @@ const Login = () => {
                 onSubmit={submitHandler}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                        Email
+                        Username
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email"
+                        id="text"
                         type="text"
                         placeholder="Enter Email"
                         value={email}
