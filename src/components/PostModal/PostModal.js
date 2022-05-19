@@ -57,7 +57,7 @@ const PostModal = () => {
         }
         dispatch(closeModal())
     }
-    return reactDom.createPortal(
+    return (
         <div className='flex flex-row justify-center fixed top-0 bottom-0 right-0 left-0 h-screen w-screen z-10 backdrop-blur-[1px] bg-black/40'>
             <aside className='flex flex-row justify-center fixed  w-screen z-10  fixed p-4 bg-neutral-50  top-[10vh] rounded max-w-sm'>
                 <form
@@ -114,8 +114,7 @@ const PostModal = () => {
                     </div>
                 </form>
             </aside>
-        </div>,
-        document.getElementById("modal")
+        </div>
     )
 }
 

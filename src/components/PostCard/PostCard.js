@@ -30,7 +30,7 @@ const PostCard = ({ post }) => {
         }
     };
     const editPostHandler = () => {
-        dispatch(showModal(post));
+        dispatch(showModal({ type: "post", post }));
         setShowDropDown(false)
     }
     const deletePostHandler = () => {

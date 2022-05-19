@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className='flex'>
                 {user && <button
                     className='px-2 hover:text-sky-50 hover:bg-sky-500/25 rounded'
-                    onClick={() => dispatch(showModal())}
+                    onClick={() => dispatch(showModal({ type: "post" }))}
                 >
                     <span className="material-icons">
                         add_circle_outline
