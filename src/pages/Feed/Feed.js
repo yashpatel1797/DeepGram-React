@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 import { getPost } from 'store/feature/postSlice'
 
 const Feed = () => {
-    const arr = [1, 2, 3]
     const { posts } = usePost();
     const dispatch = useDispatch();
     useEffect(() => {
