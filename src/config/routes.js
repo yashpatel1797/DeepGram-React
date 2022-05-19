@@ -1,5 +1,5 @@
 import MockMan from 'mockman-js';
-import { Feed, Login, Profile, Signup, Explore, Notification, BookMark } from "pages"
+import { Feed, Login, Profile, Signup, Explore, Notification, BookMark, SinglePost } from "pages"
 import { PrivateRoute } from 'components';
 const routes = [
     {
@@ -21,6 +21,10 @@ const routes = [
             {
                 path: "/bookmark",
                 element: <BookMark />,
+            },
+            {
+                path: "/post/:postId",
+                element: <SinglePost />,
             },
             {
                 path: "/",
