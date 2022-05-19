@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
 import { useRoutes } from "react-router-dom"
-import { ScrollToTop, Toast, Navbar, PostModal } from "components"
+import { ScrollToTop, Toast, Navbar, Modal } from "components"
 import { routes } from "config"
 import { useModal } from "hooks/selectors";
 
@@ -13,8 +13,8 @@ function App() {
     <>
       <ScrollToTop />
       <Toast />
+      <Modal />
       <Navbar />
-      {isShow && <PostModal />}
       <div className="App bg-white">
         {routeElement}
       </div>

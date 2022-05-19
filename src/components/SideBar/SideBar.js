@@ -1,7 +1,9 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 import { sidebarData } from 'data/sidebarData'
+import { useAuth } from 'hooks/selectors';
 const SideBar = () => {
+    const { user } = useAuth();
     return (
         <aside className='hidden justify-self-start mx-auto md:block  p-4 sticky w-full max-w-[15rem] top-[10vh] h-[85vh] rounded'>
             <ul className=''>
@@ -9,7 +11,7 @@ const SideBar = () => {
                 (<li className='px-2 py-3 flex items-center'
                     key={name}>
                     <NavLink
-                        to={path}
+                        to={name === "Profile" ? `/profile/${user?._id}` : path}
                         title={name}
                         className={({ isActive }) =>
                             `${isActive ? "bg-sky-500/70 text-sky-50" : "bg-neutral-50"
