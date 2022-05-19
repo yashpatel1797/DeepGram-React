@@ -13,11 +13,9 @@ const SinglePost = () => {
     const navigate = useNavigate();
     const [comment, setComment] = useState("");
     const post = posts.find(post => post._id === postId)
-    console.log(post);
     const profileImage = false
     const commentSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(postId, comment);
         dispatch(postComment({ postId, comment }))
         setComment("")
     }

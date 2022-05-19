@@ -7,8 +7,6 @@ const Comments = ({ comment,
     lastName,
     commentDate,
     profileImage, }) => {
-    console.log(comment);
-    console.log(firstName);
     return (
         <div className='flex items-center border-2 rounded mx-4 my-4'>
             <Link to="/">
