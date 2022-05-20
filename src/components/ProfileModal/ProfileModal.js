@@ -19,15 +19,16 @@ const ProfileModal = () => {
         try {
             const formData = new FormData();
             formData.append("file", files[0])
-            formData.append("upload_preset", process.env.REACT_APP_UPLOAD_PRESET_NAME);
+            formData.append("upload_preset", "my-uploads");
             const response = await fetch(
-                `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`,
+                `https://api.cloudinary.com/v1_1/da6riejgw/image/upload`,
                 {
                     method: "POST",
                     body: formData,
                 }
             );
             const { url, original_filename } = await response.json();
+            console.log(url, original_filename);
             setEditProfileImage({ url, original_filename });
         } catch (error) {
             toast.error("image not uploaded.")
@@ -41,6 +42,7 @@ const ProfileModal = () => {
             lastName: editLastName,
             bio: editBio,
             websiteUrl: editWebsiteUrl,
+            profileImage: editProfileImage,
         };
         dispatch(editUser({ userData }));
         dispatch(closeModal());

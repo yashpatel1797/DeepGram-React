@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 import axios from "axios";
 import { loginUser, logout } from "./authSlice";
-import { useAuth } from "hooks/selectors";
 
 const initialState = {
     userProfile: null,

@@ -5,7 +5,7 @@ import { Link, NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
 import { logout } from "store/feature/authSlice"
 import { showModal } from 'store/feature/modalSlice'
 import { followUser, unFollowUser } from 'store/feature/profileSlice'
-import { getFollowingStatus } from 'utilites/utilites'
+import { getCurrentUserPosts, getFollowingStatus } from 'utilites/utilites'
 const ProfileCard = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -13,7 +13,8 @@ const ProfileCard = () => {
     const { user } = useAuth();
     const { posts } = usePost();
     const { userProfile, userFollowing } = useProfile();
-    const { _id, firstName, lastName, username, bio, websiteUrl } = userProfile ?? {};
+    console.log(userProfile);
+    const { _id, firstName, lastName, username, bio, websiteUrl, profileImage } = userProfile ?? {};
     const logoutHandler = () => {
         dispatch(logout(user));
         localStorage.clear();
@@ -21,8 +22,7 @@ const ProfileCard = () => {
     }
 
     const isFollowing = getFollowingStatus(userFollowing, userId);
-
-    const profileImage = true;
+    const currentUserPosts = getCurrentUserPosts(userId, posts);
     const editProfileHandler = () => {
         dispatch(showModal({ type: "profile" }));
     }
@@ -33,17 +33,18 @@ const ProfileCard = () => {
             dispatch(unFollowUser(userId))
         }
     }
+    // console.log(profileImage);
     return (
         <>
             <div className='flex items-center bg-neutral-50'>
                 <Link to="/">
                     {profileImage ? (<img
-                        alt="profile"
+                        alt={[profileImage?.original_name]}
                         loading="lazy"
-                        src="https://i.pravatar.cc/300"
+                        src={profileImage?.url}
                         className='w-12 h-12 border rounded-full bg-gray-200 mx-5' />) : (
                         <div className='w-16 h-16 flex items-center justify-center font-semibold text-xl border rounded-full bg-sky-200 mx-5'>
-                            {firstName[0].toUpperCase()}
+                            {firstName && firstName[0].toUpperCase()}
                         </div>
                     )}
                 </Link>
@@ -76,19 +77,19 @@ const ProfileCard = () => {
 
                         <div>
                             <Link to={`/profile/${_id}`}>
-                                <span className='font-semibold'>{posts.length}</span>
+                                <span className='font-semibold'>{currentUserPosts?.length || 0}</span>
                                 <span className='ml-1'>posts</span>
                             </Link>
                         </div>
                         <div className='ml-6'>
                             <Link to={`/profile/${_id}/followers`}>
-                                <span className='font-semibold'>3</span>
+                                <span className='font-semibold'>{userProfile?.followers?.length || 0}</span>
                                 <span className='ml-1'>followers</span>
                             </Link>
                         </div>
                         <div className='ml-6'>
                             <Link to={`/profile/${_id}/following`}>
-                                <span className='font-semibold'>3</span>
+                                <span className='font-semibold'>{userProfile?.following?.length || 0}</span>
                                 <span className='ml-1'>following</span>
                             </Link>
                         </div>
