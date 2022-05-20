@@ -7,6 +7,19 @@ import { formatDate } from "../utils/authUtils";
 
 export const users = [
   {
+    _id: "yash-patel-test-userId",
+    firstName: "yash",
+    lastName: "patel",
+    username: "yashpatel",
+    password: "yashpatel",
+    profileImage: {
+      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652361355/g6uyad8oqzpx07uy1fuw.jpg",
+      original_filename: "yashpatel-profile",
+    },
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
     _id: "adarsh-balika-test-userId",
     firstName: "Adarsh",
     lastName: "Balika",
@@ -23,12 +36,31 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
-    firstName: "yash",
-    lastName: "patel",
-    username: "yashpatel",
-    password: "yashpatel",
+    _id: "rohan-mathur-test-userId",
+    firstName: "Rohan",
+    lastName: "Mathur",
+    username: "rohanmathur",
+    password: "rohanmathur@123",
+    profileImage: {
+      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652361355/g6uyad8oqzpx07uy1fuw.jpg",
+      original_filename: "rohanmathur-profile",
+    },
+    profileBackgroundUrl: "",
+    websiteUrl: "https://www.google.com/",
+    bio: "Many of life’s failures are people who did not realize how close they were to success when they gave up.",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-  }
+  },
+  {
+    _id: "john-doe-test-userId",
+    firstName: "John",
+    lastName: "Doe",
+    username: "johndoe",
+    password: "johndoe@123",
+    profileBackgroundUrl: "",
+    websiteUrl: "https://www.google.com/",
+    bio: "You only live once, but if you do close they were to success when they gave up.",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
 ];

@@ -1,6 +1,7 @@
 import React from 'react'
 
 const WhoToFollow = () => {
+
     return (
         <aside className='hidden lg:block lg:right-aside sticky top-[10vh] bg-neutral-50 max-w-[20rem] mx-auto w-full rounded h-max py-3'>
             <div className='mt-2 ml-4 text-xl font-semibold'>

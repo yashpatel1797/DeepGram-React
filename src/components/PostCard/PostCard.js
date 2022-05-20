@@ -9,10 +9,10 @@ import { getPostBookmarkStatus, getPostLikedStatus } from 'utilites/utilites';
 const PostCard = ({ post }) => {
     const [showDropDown, setShowDropDown] = useState(false);
     const { user } = useAuth();
-    const navigate = useNavigate();
     const { bookmarks } = usePost();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { _id, content, firstName, lastName, username, profileImage, mediaContent, likes } = post;
+    const { _id, content, userId, firstName, lastName, username, profileImage, mediaContent, likes } = post;
     const isPostLiked = getPostLikedStatus(user, likes);
     const isBookmarked = getPostBookmarkStatus(_id, bookmarks);
     const likePostHandler = () => {
@@ -39,7 +39,9 @@ const PostCard = ({ post }) => {
     return (
         <article className='bg-neutral-50 rounded mb-5 shadow-blue-500 mx-4 lg:mx-0 md:mr-6'>
             <section className='flex py-2'>
-                <Link to="/">
+                <Link
+                    to={`/profile/${userId}`}
+                    className="flex items-center mr-auto">
                     {profileImage ? (<img
                         alt="profile"
                         loading="lazy"
@@ -49,14 +51,15 @@ const PostCard = ({ post }) => {
                             {firstName[0].toUpperCase()}
                         </div>
                     )}
-                </Link>
-                <div className='flex flex-col mr-auto'>
-                    <span>{firstName} {lastName}</span>
-                    <div className='flex'>
-                        <span className='mr-2'>@{username}</span>
-                        <span>10 days ago</span>
+
+                    <div className='flex flex-col mr-auto'>
+                        <span>{firstName} {lastName}</span>
+                        <div className='flex'>
+                            <span className='mr-2'>@{username}</span>
+                            <span>10 days ago</span>
+                        </div>
                     </div>
-                </div>
+                </Link>
                 {username === user?.username && <div className='relative'>
                     <button
                         className='mr-3 w-10 h-10 flex justify-center items-center hover:text-sky-50 hover:bg-sky-500/25 rounded-full'
