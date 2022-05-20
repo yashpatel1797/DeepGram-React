@@ -1,32 +1,41 @@
-import { posts } from 'backend/db/posts'
-import { PostCard } from 'components/PostCard/PostCard'
-import { useAuth, usePost } from 'hooks/selectors'
+import { useAuth, usePost, useProfile } from 'hooks/selectors'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
 import { logout } from "store/feature/authSlice"
 import { showModal } from 'store/feature/modalSlice'
+import { followUser, unFollowUser } from 'store/feature/profileSlice'
+import { getFollowingStatus } from 'utilites/utilites'
 const ProfileCard = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { userId } = useParams();
     const { user } = useAuth();
     const { posts } = usePost();
-    const { firstName, lastName, username, bio, websiteUrl } = user;
+    const { userProfile, userFollowing } = useProfile();
+    const { _id, firstName, lastName, username, bio, websiteUrl } = userProfile ?? {};
     const logoutHandler = () => {
         dispatch(logout(user));
         localStorage.clear();
         navigate("/login")
     }
-    const usersPost = posts.filter(post => post.userId === userId)
 
-    const profileImage = false;
+    const isFollowing = getFollowingStatus(userFollowing, userId);
+
+    const profileImage = true;
     const editProfileHandler = () => {
         dispatch(showModal({ type: "profile" }));
     }
+    const followUserHandler = () => {
+        if (!isFollowing) {
+            dispatch(followUser(userId))
+        } else {
+            dispatch(unFollowUser(userId))
+        }
+    }
     return (
         <>
-            <div className='flex items-center'>
+            <div className='flex items-center bg-neutral-50'>
                 <Link to="/">
                     {profileImage ? (<img
                         alt="profile"
@@ -44,34 +53,44 @@ const ProfileCard = () => {
                             <p className='mr-4'>{firstName} {lastName}</p>
                             <p className='mr-4'>@{username}</p>
                         </div>
-                        <button
-                            className='py-2 px-4 mr-4 bg-sky-500 text-white rounded hover:bg-sky-500/50'
-                            onClick={editProfileHandler}
-                        >
-                            Edit
-                        </button>
-                        <button className='py-2 px-4 text-sky-500 border border-sky-500 bg-white rounded hover:text-white hover:bg-sky-500/50'
-                            onClick={logoutHandler}>Logout</button>
+                        {userId === user._id ? (
+                            <>
+                                <button
+                                    className='py-2 px-4 mr-4 bg-sky-500 text-white rounded hover:bg-sky-500/50'
+                                    onClick={editProfileHandler}
+                                >
+                                    Edit
+                                </button>
+                                <button className='py-2 px-4 text-sky-500 border border-sky-500 bg-white rounded hover:text-white hover:bg-sky-500/50'
+                                    onClick={logoutHandler}>Logout</button>
+                            </>) :
+                            (<button
+                                className='py-2 px-4 mr-4 bg-sky-500 text-white rounded hover:bg-sky-500/50'
+                                onClick={followUserHandler}
+                            >
+                                {isFollowing ? "Following" : "Follow"}
+                            </button>)}
+
                     </div>
                     <div className='flex justify-between mt-3'>
 
                         <div>
-                            {/* <Link to={`/profile/${_id}`}> */}
-                            <span className='font-semibold'>{posts.length}</span>
-                            <span className='ml-1'>posts</span>
-                            {/* </Link> */}
+                            <Link to={`/profile/${_id}`}>
+                                <span className='font-semibold'>{posts.length}</span>
+                                <span className='ml-1'>posts</span>
+                            </Link>
                         </div>
                         <div className='ml-6'>
-                            {/* <Link to={`/profile/${_id}/followers`}> */}
-                            <span className='font-semibold'>3</span>
-                            <span className='ml-1'>followers</span>
-                            {/* </Link> */}
+                            <Link to={`/profile/${_id}/followers`}>
+                                <span className='font-semibold'>3</span>
+                                <span className='ml-1'>followers</span>
+                            </Link>
                         </div>
                         <div className='ml-6'>
-                            {/* <Link to={`/profile/${_id}/following`}> */}
-                            <span className='font-semibold'>3</span>
-                            <span className='ml-1'>following</span>
-                            {/* </Link> */}
+                            <Link to={`/profile/${_id}/following`}>
+                                <span className='font-semibold'>3</span>
+                                <span className='ml-1'>following</span>
+                            </Link>
                         </div>
                     </div>
                     <div className='mt-3'>
@@ -86,9 +105,47 @@ const ProfileCard = () => {
                     </div>
                 </div>
             </div>
-            <div className='my-2'>
-                {usersPost.map(post => <PostCard key={post._id} post={post} />)}
+            <div className="max-w-xl mx-auto mt-4 pb-4">
+                <div className="border-b flex items-center justify-between">
+                    <NavLink
+                        end
+                        to={`/profile/${_id}`}
+                        className={({ isActive }) =>
+                            `${isActive
+                                ? "text-blue-500 border-b-2 mb-[-0.8px] border-blue-500"
+                                : ""
+                            } font-semibold text-sm md:text-base py-2 px-4 hover:text-blue-500`
+                        }
+                    >
+                        Posts
+                    </NavLink>
+                    <NavLink
+                        end
+                        to={`/profile/${_id}/followers`}
+                        className={({ isActive }) =>
+                            `${isActive
+                                ? "text-blue-500 border-b-2 mb-[-0.8px] border-blue-500"
+                                : ""
+                            } font-semibold text-sm md:text-base py-2 px-4 hover:text-blue-500`
+                        }
+                    >
+                        Followers
+                    </NavLink>
+                    <NavLink
+                        end
+                        to={`/profile/${_id}/following`}
+                        className={({ isActive }) =>
+                            `${isActive
+                                ? "text-blue-500 border-b-2 mb-[-0.8px] border-blue-500"
+                                : ""
+                            } font-semibold text-sm md:text-base py-2 px-4 hover:text-blue-500`
+                        }
+                    >
+                        Following
+                    </NavLink>
+                </div>
             </div>
+            <div><Outlet /></div>
         </>
     )
 }

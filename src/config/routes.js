@@ -1,6 +1,6 @@
 import MockMan from 'mockman-js';
 import { Feed, Login, Profile, Signup, Explore, Notification, BookMark, SinglePost } from "pages"
-import { PrivateRoute } from 'components';
+import { PrivateRoute, Followers, Following, Posts } from 'components';
 const routes = [
     {
         path: "/login",
@@ -15,8 +15,22 @@ const routes = [
         element: <PrivateRoute />,
         children: [
             {
-                path: "/profile/:userId",
+                path: "/profile/:userId/",
                 element: <Profile />,
+                children: [
+                    {
+                        index: true,
+                        element: <Posts />
+                    },
+                    {
+                        path: "followers",
+                        element: <Followers />,
+                    },
+                    {
+                        path: "following",
+                        element: <Following />,
+                    },
+                ]
             },
             {
                 path: "/bookmark",
