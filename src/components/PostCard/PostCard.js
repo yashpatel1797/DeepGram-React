@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { showModal } from 'store/feature/modalSlice';
 import { addBookMarkPost, deletePost, disLikePost, editPost, likePost, removeBookMarkPost } from 'store/feature/postSlice';
-import { getPostBookmarkStatus, getPostLikedStatus } from 'utilites/utilites';
+import { getDate, getPostBookmarkStatus, getPostLikedStatus } from 'utilites/utilites';
 
 const PostCard = ({ post }) => {
     const [showDropDown, setShowDropDown] = useState(false);
@@ -12,7 +12,7 @@ const PostCard = ({ post }) => {
     const { bookmarks } = usePost();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { _id, content, userId, firstName, lastName, username, profileImage, mediaContent, likes } = post;
+    const { _id, content, userId, firstName, lastName, username, profileImage, mediaContent, likes, updatedAt } = post;
     const isPostLiked = getPostLikedStatus(user, likes);
     const isBookmarked = getPostBookmarkStatus(_id, bookmarks);
     const likePostHandler = () => {
@@ -43,9 +43,9 @@ const PostCard = ({ post }) => {
                     to={`/profile/${userId}`}
                     className="flex items-center mr-auto">
                     {profileImage ? (<img
-                        alt="profile"
+                        alt={profileImage.original_filename}
                         loading="lazy"
-                        src="https://i.pravatar.cc/300"
+                        src={profileImage.url}
                         className='w-12 h-12 border rounded-full bg-gray-200 mx-5' />) : (
                         <div className='w-12 h-12 flex items-center justify-center font-semibold text-xl border rounded-full bg-sky-200 mx-5'>
                             {firstName[0].toUpperCase()}
@@ -56,7 +56,7 @@ const PostCard = ({ post }) => {
                         <span>{firstName} {lastName}</span>
                         <div className='flex'>
                             <span className='mr-2'>@{username}</span>
-                            <span>10 days ago</span>
+                            <span>{getDate(updatedAt)}</span>
                         </div>
                     </div>
                 </Link>

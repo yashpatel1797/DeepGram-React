@@ -1,5 +1,5 @@
 import MockMan from 'mockman-js';
-import { Feed, Login, Profile, Signup, Explore, Notification, BookMark, SinglePost } from "pages"
+import { Feed, Login, Profile, Signup, Explore, BookMark, SinglePost } from "pages"
 import { PrivateRoute, Followers, Following, Posts } from 'components';
 const routes = [
     {
@@ -43,10 +43,6 @@ const routes = [
             {
                 path: "/",
                 element: <Feed />,
-            },
-            {
-                path: "/notifications",
-                element: <Notification />,
             },
             {
                 path: "/explore",

@@ -1,3 +1,4 @@
+import { UserCard } from 'components/UserCard/UserCard';
 import { useProfile } from 'hooks/selectors';
 import React from 'react'
 import { Link } from 'react-router-dom';
@@ -11,7 +12,7 @@ const Followers = () => {
                 followers.map((user) => <UserCard key={user._id} user={user} />)) : (
                 <p className="text-center font-semibold mt-8">
                     You don't have any follower, please connect with people.
-                    <Link to="/explore" className="text-blue-500 hover:underline ml-1">
+                    <Link to="/explore" className="text-sky-500 hover:underline ml-1">
                         Explore
                     </Link>
                 </p>

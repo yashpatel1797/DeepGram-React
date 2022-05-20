@@ -18,7 +18,7 @@ const Explore = () => {
             <SideBar />
             <BottomNav />
             <main className=''>
-                {exploreFeed > 0 ? (
+                {exploreFeed.length > 0 ? (
                     exploreFeed.map(post => <PostCard key={post._id} post={post} />)) : (
                     <p className='text-center font-semibold mt-8'>No Post to show.</p>
                 )}

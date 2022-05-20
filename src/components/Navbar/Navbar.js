@@ -8,10 +8,10 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     return (
-        <nav className='fixed w-full lg:px-80 md:px-40 px-20 flex flex-row top-0 h-13 items-center border bg-neutral-50'>
+        <nav className='min-h-[3rem] fixed w-full lg:px-80 md:px-40 px-20 flex flex-row top-0 h-13 items-center border bg-neutral-50'>
             <div className='mr-auto'>
                 <Link to="/">
-                    <span>
+                    <span className='text-2xl'>
                         Deepgram
                     </span>
                 </Link>

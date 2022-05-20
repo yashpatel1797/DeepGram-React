@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 const initialState = {
     posts: [],
     bookmarks: [],
+    postSortType: "",
     isLoading: false,
     error: null,
 }
@@ -106,7 +107,11 @@ export const postComment = createAsyncThunk(
 export const postSlice = createSlice({
     name: "posts",
     initialState,
-    reducers: {},
+    reducers: {
+        setPostSortType: (state, { payload }) => {
+            state.postSortType = payload;
+        },
+    },
     extraReducers: {
         [getPost.pending]: (state) => {
             state.isLoading = true;
@@ -175,4 +180,5 @@ export const postSlice = createSlice({
         }
     },
 });
+export const { setPostSortType } = postSlice.actions;
 export const postReducer = postSlice.reducer;
