@@ -70,6 +70,13 @@ npm start
 
 ## Screenshot
 
+![1](https://user-images.githubusercontent.com/16306433/169643569-aba533d1-dbb5-41c3-8b77-3ac3916f25b0.PNG)
+![2](https://user-images.githubusercontent.com/16306433/169643575-e46e1176-ef3d-4eb6-a093-561e3967d23f.PNG)
+![3](https://user-images.githubusercontent.com/16306433/169643578-25a7988a-7330-43b1-9a37-b2ead7b63d5b.PNG)
+![4](https://user-images.githubusercontent.com/16306433/169643580-57b3e3d8-1fdb-4679-a1f9-a69995c9c167.PNG)
+![5](https://user-images.githubusercontent.com/16306433/169643583-afacb0aa-4f71-4edd-94f1-386ecf79fadc.PNG)
+![6](https://user-images.githubusercontent.com/16306433/169643584-ac6f21e4-4ebf-4209-be2b-7216b69bd2e9.PNG)
+
 ## Links
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://patelyash.netlify.app/)
