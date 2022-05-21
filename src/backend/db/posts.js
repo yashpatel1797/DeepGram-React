@@ -7,40 +7,10 @@ import { formatDate } from "../utils/authUtils";
  * */
 
 export const posts = [
-  // {
-  //   _id: uuid(),
-  //   content:
-  //     "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  //   likes: {
-  //     likeCount: 0,
-  //     likedBy: [],
-  //     dislikedBy: [],
-  //   },
-  //   username: "adarshbalika",
-  //   firstName: "Adarsh",
-  //   lastName: "Balika",
-  //   createdAt: formatDate(),
-  //   updatedAt: formatDate(),
-  // },
-  // {
-  //   _id: uuid(),
-  //   content:
-  //     "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  //   likes: {
-  //     likeCount: 0,
-  //     likedBy: [],
-  //     dislikedBy: [],
-  //   },
-  //   username: "shubhamsoni",
-  //   firstName: "Shubham",
-  //   lastName: "soni",
-  //   createdAt: formatDate(),
-  //   updatedAt: formatDate(),
-  // },
   {
     _id: uuid(),
     content:
-      "Leadership is lifting a person's vision to high sights, the raising of a person's performance to a higher standard, the building of a personality beyond its normal limitations. —Peter Drucker",
+      "They may take our lives, but they'll never take our freedom!",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -49,8 +19,8 @@ export const posts = [
     userId: "adarsh-balika-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "Pngtree—businessman",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
+      original_filename: "adarsh-profile",
     },
     postMedia: null,
     firstName: "Adarsh",
@@ -62,7 +32,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "Leadership is lifting a person's vision to high sights, the raising of a person's performance to a higher standard, the building of a personality beyond its normal limitations. —Peter Drucker",
+      "Just when I thought I was out, they pull me back in.",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -71,8 +41,8 @@ export const posts = [
     userId: "adarsh-balika-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "Pngtree—businessman",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
+      original_filename: "adarsh-profile",
     },
     postMedia: null,
     firstName: "Adarsh",
@@ -84,7 +54,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores lor repellendus.",
+      "Keep your friends close, but your enemies closer.",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -98,38 +68,31 @@ export const posts = [
       ],
       dislikedBy: [],
     },
-    userId: "adarsh-balika-test-userId",
+    userId: "yash-patel-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "Pngtree—businessman",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080197/my-uploads/xdlfkqvpal2w0oagq2rm.jpg",
+      original_filename: "yashpatel-profile",
     },
     postMedia: null,
-    firstName: "Adarsh",
-    lastName: "Balika",
-    username: "adarshbalika",
+    firstName: "yash",
+    lastName: "patel",
+    username: "yashpatel",
     createdAt: "2022-05-15T16:43:34+05:30",
     updatedAt: "2022-05-15T16:43:34+05:30",
   },
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores lor repellendus.",
+      "I have always depended on the kindness of strangers.",
     likes: {
-      likeCount: 2,
+      likeCount: 1,
       likedBy: [
         {
           _id: "adarsh-balika-test-userId",
           username: "adarshbalika",
           firstName: "Adarsh",
           lastName: "Balika",
-          likeUpdateDate: "2022-05-15T16:30:17+05:30",
-        },
-        {
-          _id: "yash-patel-test-userId",
-          username: "rohanmathur",
-          firstName: "Rohan",
-          lastName: "Mathur",
           likeUpdateDate: "2022-05-15T16:30:17+05:30",
         },
       ],
@@ -137,54 +100,54 @@ export const posts = [
     },
     userId: "yash-patel-test-userId",
     comments: [],
-    postMedia: { url: "https://picsum.photos/500/400", original_filename: "" },
+    postMedia: null,
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652361355/g6uyad8oqzpx07uy1fuw.jpg",
-      original_filename: "rohanmathur-profile",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080197/my-uploads/xdlfkqvpal2w0oagq2rm.jpg",
+      original_filename: "yashpatel-profile",
     },
-    firstName: "Rohan",
-    lastName: "Mathur",
-    username: "rohanmathur",
+    firstName: "yash",
+    lastName: "patel",
+    username: "yashpatel",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores lor repellendus.",
+      "Hope is a good thing. Maybe even the best of things and good things never die.",
     likes: {
       likeCount: 1,
       likedBy: [
         {
           _id: "yash-patel-test-userId",
-          username: "rohanmathur",
-          firstName: "Rohan",
-          lastName: "Mathur",
+          username: "yashpatel",
+          firstName: "yash",
+          lastName: "patel",
           likeUpdateDate: "2022-05-15T16:30:17+05:30",
         },
       ],
       dislikedBy: [],
     },
-    userId: "john-doe-test-userId",
+    userId: "harsh-kumar-test-userId",
     postMedia: null,
     comments: [],
-    firstName: "John",
-    lastName: "Doe",
-    username: "johndoe",
+    firstName: "Harsh",
+    lastName: "Kumar",
+    username: "harshkumar",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
-    content: "Flowers 🌻",
+    content: "You wasted $150,000 on an education you coulda got for $1.50 in late fees at the public library.",
     likes: {
       likeCount: 2,
       likedBy: [
         {
-          _id: "john-doe-test-userId",
-          username: "johndoe",
-          firstName: "John",
-          lastName: "Doe",
+          _id: "harsh-kumar-test-userId",
+          username: "harshkumar",
+          firstName: "Harsh",
+          lastName: "Kumar",
           likeUpdateDate: "2022-05-15T16:30:17+05:30",
         },
         {
@@ -200,8 +163,8 @@ export const posts = [
     userId: "adarsh-balika-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "Pngtree—businessman",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
+      original_filename: "adarsh-profile",
     },
     firstName: "Adarsh",
     lastName: "Balika",
@@ -216,7 +179,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "If you're thinking about putting a TypeScript package up to NPM, you should be considering preconstruct. It makes setup EXTREMELY easy and takes many decisions out of your hands.",
+      "You see, in their last moment people show you who they really are.",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -224,17 +187,17 @@ export const posts = [
     },
     comments: [],
     postMedia: { url: "https://picsum.photos/500/400", original_filename: "" },
-    userId: "john-doe-test-userId",
-    firstName: "John",
-    lastName: "Doe",
-    username: "johndoe",
+    userId: "harsh-kumar-test-userId",
+    firstName: "Harsh",
+    lastName: "Kumar",
+    username: "harshkumar",
     createdAt: "2022-05-15T16:43:34+05:30",
     updatedAt: "2022-05-15T16:43:34+05:30",
   },
   {
     _id: uuid(),
     content:
-      "Experience is not the amount of time you have held a position but the amount of time you have put into your craft ✨",
+      "You mustn't be afraid to dream a little bigger, darling.",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -243,8 +206,8 @@ export const posts = [
     userId: "adarsh-balika-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "test-image-1",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
+      original_filename: "adarsh-profile",
     },
     firstName: "Adarsh",
     lastName: "Balika",
@@ -255,15 +218,15 @@ export const posts = [
   },
   {
     _id: uuid(),
-    content: "This is a panda. 👀",
+    content: "The only thing standing between you and your goal is the bullshit story you keep telling yourself as to why you can't achieve it.",
     likes: {
       likeCount: 2,
       likedBy: [
         {
-          _id: "john-doe-test-userId",
-          username: "johndoe",
-          firstName: "John",
-          lastName: "Doe",
+          _id: "harsh-kumar-test-userId",
+          username: "harshkumar",
+          firstName: "Harsh",
+          lastName: "Kumar",
           likeUpdateDate: "2022-05-15T16:30:17+05:30",
         },
         {
@@ -279,8 +242,8 @@ export const posts = [
     userId: "adarsh-balika-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "Pngtree—businessman",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
+      original_filename: "adarsh-profile",
     },
     firstName: "Adarsh",
     lastName: "Balika",
@@ -294,16 +257,15 @@ export const posts = [
   },
   {
     _id: uuid(),
-    content: `This man has been inspiring me for a couple of decades now.
-      Selflessness, dealing with failure, handling success, staying calm in adversity, getting the best out of resources! 🚀`,
+    content: `Don’t let anybody tell you that you can’t do something.`,
     likes: {
       likeCount: 1,
       likedBy: [
         {
-          _id: "john-doe-test-userId",
-          username: "johndoe",
-          firstName: "John",
-          lastName: "Doe",
+          _id: "harsh-kumar-test-userId",
+          username: "harshkumar",
+          firstName: "Harsh",
+          lastName: "Kumar",
           likeUpdateDate: "2022-05-15T16:30:17+05:30",
         },
       ],
@@ -312,8 +274,8 @@ export const posts = [
     userId: "adarsh-balika-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "Pngtree—businessman",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
+      original_filename: "adarsh-profile",
     },
     firstName: "Adarsh",
     lastName: "Balika",
@@ -328,7 +290,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "A leader is best when people barely know he exists, when his work is done, his aim fulfilled, they will say: we did it ourselves. —Lao Tzu",
+      "A million dollars isn't cool. You know what's cool? A billion dollars.",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -337,8 +299,8 @@ export const posts = [
     userId: "adarsh-balika-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "Pngtree—businessman",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
+      original_filename: "adarsh-profile",
     },
     postMedia: null,
     firstName: "Adarsh",
@@ -351,7 +313,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "Before you are a leader, success is all about growing yourself. When you become a leader, success is all about growing others. —Jack Welch",
+      "You know what kind of plan never fails? No plan. No plan at all. You know why? Because life cannot be planned.",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -360,8 +322,8 @@ export const posts = [
     userId: "adarsh-balika-test-userId",
     comments: [],
     profileImage: {
-      url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652362403/ct4fvtk6i5iu1mbnb6hj.jpg",
-      original_filename: "Pngtree—businessman",
+      url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
+      original_filename: "adarsh-profile",
     },
     postMedia: null,
     firstName: "Adarsh",

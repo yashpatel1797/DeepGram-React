@@ -13,7 +13,6 @@ const ProfileCard = () => {
     const { user } = useAuth();
     const { posts } = usePost();
     const { userProfile, userFollowing } = useProfile();
-    console.log(userProfile);
     const { _id, firstName, lastName, username, bio, websiteUrl, profileImage } = userProfile ?? {};
     const logoutHandler = () => {
         dispatch(logout(user));
@@ -33,7 +32,6 @@ const ProfileCard = () => {
             dispatch(unFollowUser(userId))
         }
     }
-    // console.log(profileImage);
     return (
         <>
             <div className='flex items-center bg-neutral-50'>

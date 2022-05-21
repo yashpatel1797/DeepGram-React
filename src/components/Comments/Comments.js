@@ -11,9 +11,9 @@ const Comments = ({ comment,
         <div className='flex items-center border-2 rounded mx-4 my-4'>
             <Link to="/">
                 {profileImage ? (<img
-                    alt="profile"
+                    alt={profileImage?.original_name}
                     loading="lazy"
-                    src="https://i.pravatar.cc/300"
+                    src={profileImage?.url}
                     className='w-12 h-12 border rounded-full bg-gray-200 mx-2' />) : (
                     <div className='w-12 h-12 flex items-center justify-center font-semibold text-xl border rounded-full bg-sky-200 mx-2'>
                         {firstName[0].toUpperCase()}
@@ -23,7 +23,6 @@ const Comments = ({ comment,
             <div>
                 <div className='flex mr-auto'>
                     <span>{firstName} {lastName}</span>
-                    <span>• 10 days ago</span>
                 </div>
                 <p>{comment}</p>
             </div>

@@ -4,7 +4,7 @@ import { closeModal } from 'store/feature/modalSlice'
 import reactDom from "react-dom";
 import { addPost, editPost } from 'store/feature/postSlice';
 import { useAuth, useModal } from 'hooks/selectors';
-import axios from 'axios';
+
 const PostModal = () => {
     const dispatch = useDispatch();
     const { user } = useAuth();

@@ -13,7 +13,6 @@ const SinglePost = () => {
     const navigate = useNavigate();
     const [comment, setComment] = useState("");
     const post = posts.find(post => post._id === postId)
-    const profileImage = false
     const commentSubmitHandler = (e) => {
         e.preventDefault();
         dispatch(postComment({ postId, comment }))
@@ -30,11 +29,11 @@ const SinglePost = () => {
                     className='flex items-center'
                 >
                     <Link to="/">
-                        {profileImage ? (<img
-                            alt="profile"
+                        {user?.profileImage ? (<img
+                            alt={user?.profileImage?.original_name}
                             loading="lazy"
-                            src="https://i.pravatar.cc/300"
-                            className='w-12 h-12 border rounded-full bg-gray-200 mx-5' />) : (
+                            src={user?.profileImage?.url}
+                            className='w-12 h-12 border rounded-full bg-gray-200 mx-3' />) : (
                             <div className='w-12 h-12 flex items-center justify-center font-semibold text-xl border rounded-full bg-sky-200 mx-5'>
                                 {firstName[0].toUpperCase()}
                             </div>

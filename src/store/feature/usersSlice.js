@@ -11,7 +11,6 @@ export const getSearchedUser = createAsyncThunk(
     async (searchQuery = "", { getState }) => {
         try {
             const { user } = getState();
-            console.log(user);
             const { data: { users }, } = await axios.get(`/api/users?search=${searchQuery}`);
             return { users, loggedInUser: user.user, searchQuery }
         } catch (error) {
@@ -27,7 +26,7 @@ const usersSlice = createSlice({
             state.isLoading = true;
         },
         [getSearchedUser.fulfilled]: (state, { payload }) => {
-            state.isLoading = true;
+            state.isLoading = false;
             state.userlist = payload?.users.filter(
                 (user) => user._id !== payload.loggedInUser._id
             );
