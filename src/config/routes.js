@@ -1,5 +1,5 @@
 import MockMan from 'mockman-js';
-import { Feed, Login, Profile, Signup, Explore, BookMark, SinglePost } from "pages"
+import { Feed, Login, Profile, Signup, Explore, BookMark, SinglePost, Search } from "pages"
 import { PrivateRoute, Followers, Following, Posts } from 'components';
 const routes = [
     {
@@ -47,6 +47,10 @@ const routes = [
             {
                 path: "/explore",
                 element: <Explore />,
+            },
+            {
+                path: "/search",
+                element: <Search />,
             },
         ]
     }

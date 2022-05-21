@@ -25,11 +25,11 @@ const Navbar = () => {
                         add_circle_outline
                     </span>
                 </button>}
-                {user ? <Link to="/profile">
+                {user ? <Link to={`/profile/${user._id}`}>
                     <img
-                        alt="profile"
+                        alt={user?.profileImage?.original_name}
                         loading="lazy"
-                        src="https://i.pravatar.cc/300"
+                        src={user?.profileImage?.url}
                         className='w-11 h-11 border rounded-full bg-gray-200 ml-5' />
                 </Link> : <Link to="/login">
                     <button>Login</button>

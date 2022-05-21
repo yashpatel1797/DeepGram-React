@@ -28,7 +28,6 @@ const ProfileModal = () => {
                 }
             );
             const { url, original_filename } = await response.json();
-            console.log(url, original_filename);
             setEditProfileImage({ url, original_filename });
         } catch (error) {
             toast.error("image not uploaded.")

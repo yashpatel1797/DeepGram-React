@@ -25,9 +25,9 @@ const UserCard = ({ user }) => {
                     to={`/profile/${_id}`}
                     className='flex items-center'>
                     {profileImage ? (<img
-                        alt="profile"
+                        alt={profileImage?.original_name}
                         loading="lazy"
-                        src="https://i.pravatar.cc/300"
+                        src={profileImage?.url}
                         className='w-12 h-12 border rounded-full bg-gray-200 mx-2' />) : (
                         <div className='w-12 h-12 flex items-center justify-center font-semibold text-xl border rounded-full bg-sky-200 mx-2'>
                             {firstName && firstName[0].toUpperCase()}

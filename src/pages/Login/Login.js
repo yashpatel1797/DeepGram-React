@@ -54,11 +54,11 @@ const Login = () => {
                 </div>
 
                 <div>
-                    <button className="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4" onClick={testHandler}>Test credentials</button>
+                    <button className="w-full bg-white hover:bg-sky-700 text-sky-500 border border-sky-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4" onClick={testHandler}>Test credentials</button>
                 </div>
                 <div>
 
-                    <button className="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    <button className="w-full bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                         Log In
                     </button>
                 </div>

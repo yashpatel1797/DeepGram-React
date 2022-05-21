@@ -119,14 +119,11 @@ const Signup = () => {
                 </div>
                 <div className="flex items-center justify-between">
                     <button
-                        className="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        className="w-full bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 
                     >
                         Signup
                     </button>
-                    <Link className="inline-block align-baseline font-bold text-sm text-sky-500 hover:text-sky-700" to="#">
-                        Forgot Password?
-                    </Link>
                 </div>
                 <div className='mt-4'>Already a user? <Link to="/login" className='text-sky-500 hover:text-sky-700'>Login</Link></div>
             </form>
