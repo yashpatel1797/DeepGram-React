@@ -12,11 +12,16 @@ const Search = () => {
 
     useEffect(() => {
         dispatch(getSearchedUser.pending());
-        dispatch(getSearchedUser(searchQuery));
+        let timer = setTimeout(() => {
+            dispatch(getSearchedUser(searchQuery));
+        }, 3700)
+
+        return () => timer && clearTimeout(timer)
     }, [dispatch, searchQuery]);
     const handleSearchQuery = (e) => {
         setSearchQuery(e.target.value)
     }
+
     return (
         <div className='grid lg:grid-cols-3 mt-16 md:grid-cols-2 grid-cols-1'>
             <SideBar />

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getPost, setPostSortType } from 'store/feature/postSlice'
 import { getHomeFeed, getPostsBySortType } from 'utilites/utilites'
-
+import { useInfiniteScroll } from 'hooks/useInfiniteScroll'
 const Feed = () => {
     const { user } = useAuth();
     const dispatch = useDispatch();
@@ -13,6 +13,8 @@ const Feed = () => {
 
     const homeFeed = getHomeFeed(user, posts, userFollowing);
     const sortedHomeFeed = getPostsBySortType(homeFeed, postSortType);
+    const { feed, hasMorePosts, setObserverRef } =
+        useInfiniteScroll(sortedHomeFeed);
     useEffect(() => {
         dispatch(getPost());
     }, [])
@@ -36,11 +38,26 @@ const Feed = () => {
                     >Trending</button>
                 </div>
                 }
-                {isLoading ? <Loader /> : sortedHomeFeed.length > 0 ? sortedHomeFeed.map(post => <PostCard key={post._id} post={post} />) : (
-                    <p className="text-center font-semibold mt-8">
-                        No Content available to show
-                    </p>
-                )}
+                {isLoading ? <Loader /> :
+                    feed.length > 0 ? (
+                        <>
+                            {feed.map((post) => (<PostCard key={post._id} post={post} />))}
+                            {hasMorePosts ? (
+                                <span ref={setObserverRef}>
+                                    <Loader />
+                                </span>
+                            ) : (
+                                <p className="text-center text-gray-500 mt-8 text-sm">
+                                    You have reached the end.
+                                </p>
+                            )}
+                        </>
+                    )
+                        : (
+                            <p className="text-center font-semibold mt-8">
+                                No Content available to show
+                            </p>
+                        )}
             </main>
             <WhoToFollow />
         </div>

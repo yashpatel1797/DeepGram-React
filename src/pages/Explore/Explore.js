@@ -4,12 +4,14 @@ import { useAuth, usePost, useProfile } from 'hooks/selectors'
 import { useDispatch } from 'react-redux';
 import { getExploreFeed } from 'utilites/utilites';
 import { getPost } from 'store/feature/postSlice';
+import { useInfiniteScroll } from 'hooks/useInfiniteScroll';
 const Explore = () => {
     const { user } = useAuth();
     const dispatch = useDispatch();
     const { posts, isLoading } = usePost();
     const { userFollowing } = useProfile();
     const exploreFeed = getExploreFeed(user, posts, userFollowing)
+    const { feed, hasMorePosts, setObserverRef } = useInfiniteScroll(exploreFeed);
     useEffect(() => {
         dispatch(getPost());
     }, [dispatch]);
@@ -20,10 +22,22 @@ const Explore = () => {
             <main>
                 {isLoading ? (
                     <Loader />
-                ) : exploreFeed.length > 0 ? (
-                    exploreFeed.map(post => <PostCard key={post._id} post={post} />)) : (
-                    <p className='text-center font-semibold mt-8'>No Post to show.</p>
-                )}
+                ) :
+                    feed.length > 0 ? (
+                        <>
+                            {feed.map((post) => (<PostCard key={post._id} post={post} />))}
+                            {hasMorePosts ? (
+                                <span ref={setObserverRef}>
+                                    <Loader />
+                                </span>
+                            ) : (
+                                <p className="text-center text-gray-500 mt-8 text-sm">
+                                    You have reached the end.
+                                </p>
+                            )}
+                        </>) : (
+                        <p className='text-center font-semibold mt-8'>No Post to show.</p>
+                    )}
             </main>
             <WhoToFollow />
         </div>

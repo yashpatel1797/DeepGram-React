@@ -8,8 +8,6 @@ const ProfileModal = () => {
     const dispatch = useDispatch();
     const { user } = useAuth();
     const { firstName, lastName, username, bio, websiteUrl, profileImage } = user ?? {};
-    const [editFirstName, setEditFirstName] = useState(firstName || "");
-    const [editLastName, setEditLastName] = useState(lastName || "");
     const [editBio, setEditBio] = useState(bio || "");
     const [editWebsiteUrl, setEditWebsiteUrl] = useState(websiteUrl || "");
     const [editProfileImage, setEditProfileImage] = useState(profileImage || null)
@@ -37,8 +35,6 @@ const ProfileModal = () => {
         e.preventDefault();
 
         const userData = {
-            firstName: editFirstName,
-            lastName: editLastName,
             bio: editBio,
             websiteUrl: editWebsiteUrl,
             profileImage: editProfileImage,
@@ -87,15 +83,7 @@ const ProfileModal = () => {
                             htmlFor="firstname">
                             Firstname
                         </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="firstname"
-                            type="text"
-                            placeholder="Firstname"
-                            value={editFirstName}
-                            onChange={(e) => setEditFirstName(e.target.value)}
-                            required
-                        />
+                        <span>{firstName}</span>
                     </div>
                     <div className="mb-4">
                         <label
@@ -103,14 +91,7 @@ const ProfileModal = () => {
                             htmlFor="lastname">
                             Lastname
                         </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="lastname"
-                            type="text"
-                            placeholder="Lastname"
-                            value={editLastName}
-                            onChange={(e) => setEditLastName(e.target.value)}
-                            required />
+                        <span>{lastName}</span>
                     </div>
                     <div className="mb-4">
                         <label
