@@ -14,7 +14,7 @@ const Search = () => {
         dispatch(getSearchedUser.pending());
         let timer = setTimeout(() => {
             dispatch(getSearchedUser(searchQuery));
-        }, 3700)
+        }, 1000)
 
         return () => timer && clearTimeout(timer)
     }, [dispatch, searchQuery]);
