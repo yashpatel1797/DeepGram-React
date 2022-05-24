@@ -12,7 +12,7 @@ export const users = [
     lastName: "patel",
     username: "yashpatel",
     password: "yashpatel",
-    bio: "You only live once, but if you do it right, once is enough.",
+    bio: "A mind needs books like a sword needs a whetstone.",
     websiteUrl: "https://www.google.com/",
     following:
     {
@@ -21,7 +21,7 @@ export const users = [
       lastName: "Balika",
       username: "adarshbalika",
       password: "adarshBalika123",
-      bio: "You only live once, but if you do it right, once is enough.",
+      bio: "They may take our lives, but they'll never take our freedom!",
       websiteUrl: "https://www.google.com/",
       profileImage: {
         url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
@@ -43,7 +43,7 @@ export const users = [
     lastName: "Balika",
     username: "adarshbalika",
     password: "adarshBalika123",
-    bio: "You only live once, but if you do it right, once is enough.",
+    bio: "They may take our lives, but they'll never take our freedom!",
     websiteUrl: "https://www.google.com/",
     profileImage: {
       url: "https://res.cloudinary.com/da6riejgw/image/upload/v1653080188/my-uploads/zrklsvbqe9yzvyr07r8j.jpg",
@@ -52,22 +52,6 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
-  // {
-  //   _id: "rohan-mathur-test-userId",
-  //   firstName: "Rohan",
-  //   lastName: "Mathur",
-  //   username: "rohanmathur",
-  //   password: "rohanmathur@123",
-  //   profileImage: {
-  //     url: "https://res.cloudinary.com/dexubgbx0/image/upload/v1652361355/g6uyad8oqzpx07uy1fuw.jpg",
-  //     original_filename: "rohanmathur-profile",
-  //   },
-  //   profileBackgroundUrl: "",
-  //   websiteUrl: "https://www.google.com/",
-  //   bio: "Many of life’s failures are people who did not realize how close they were to success when they gave up.",
-  //   createdAt: formatDate(),
-  //   updatedAt: formatDate(),
-  // },
   {
     _id: "harsh-kumar-test-userId",
     firstName: "Harsh",
